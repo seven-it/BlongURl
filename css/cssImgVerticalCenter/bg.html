@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 300px;
+      height: 300px;
+      text-align: center;
+      border: 1px solid red;
+      float: left;
+      background: url("./images/1.jpg") center no-repeat;
+
+      /* IE7+ 测试环境最低只有ie7 */
+    }
+    /* 
+     * 优点： css代码精简，利于性能优化（base64图片压缩）,兼容性好
+     * 缺点： 一个dom只能对应一张背景图，在多张图片的情况下css代码会有些繁重，
+     */
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+</html>

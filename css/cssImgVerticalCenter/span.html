@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 300px;
+      height: 300px;
+      text-align: center;
+      background-color: red;
+      float: left;
+    }
+    span {
+      display: inline-block;
+      height: 100%;
+       /* !!!!!!!!!!!!!!! */
+      width: 0px;
+      vertical-align: middle;
+    }
+    img {
+      max-width: 90%;
+      /* !!!!!!!!!! */
+      vertical-align: middle;
+
+      /* IE7+ 测试环境最低只有ie7 */
+    }
+    /* 
+     * 优点： 兼容性好，
+     * 缺点： 多了一个标签，css代码较多
+     */
+  </style>
+</head>
+
+<body>
+  <div>
+    <span></span>
+    <img src="./images/1.jpg" alt="">
+  </div>
+  <div>
+    <span></span>
+    <img src="./images/2.jpg" alt="">
+  </div>
+  <div>
+    <span></span>
+    <img src="./images/3.jpg" alt="">
+  </div>
+  <div>
+    <span></span>
+    <img src="./images/4.jpg" alt="">
+  </div>
+  <div>
+    <span></span>
+    <img src="./images/5.jpg" alt="">
+  </div>
+</body>
+
+</html>
