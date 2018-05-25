@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .waves {
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      overflow: hidden;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 1;
+    }
+
+    .waves .waves-animation {
+      position: absolute;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      background: rgba(255, 255, 255, 0.3);
+      transition: all 0.7s ease-out;
+      transition-property: transform, opacity, -webkit-transform;
+      transform: scale(0);
+      pointer-events: none
+    }
+
+    .ts-btn {
+      width: 200px;
+      height: 56px;
+      line-height: 56px;
+      background: #f57035;
+      color: #fff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="waves ts-btn">Press me!</a>
+  <a class="waves ts-btn">Press me!</a>
+  <a class="waves ts-btn">Press me!</a>
+  <a class="waves ts-btn">Press me!</a>
+  <a class="waves ts-btn">Press me!</a>
+
+  <script>
+    var waves = document.querySelectorAll('.waves')
+    var forStyle = function (position) {
+        var cssStr = "";
+        for (var key in position) {
+          if (position.hasOwnProperty(key)) {
+            cssStr += `${key}:${position[key]};`
+          }
+        }
+        return cssStr;
+      }
+    var show = function (event) {
+      var target = event.target
+      var getRect = target.getBoundingClientRect();
+      var newDiv = document.createElement('div');
+      var _scale = target.clientWidth / 100 * 10;
+      target.appendChild(newDiv)
+
+      var top = event.clientY - getRect.top + 'px',
+          left = event.clientX - getRect.left + 'px';
+
+      var position = {
+        top: top,
+        left: left,
+        opacity: 1
+      };
+
+      newDiv.className += 'waves-animation'
+      newDiv.setAttribute('style', forStyle(position))
+
+      var finishStyle = {
+        opacity: 0,
+        transform: `scale(${_scale})`,
+        "transition-duration": 750 + "ms",
+        "transition-timing-function": "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
+        top: top,
+        left: left
+      }
+
+      setTimeout(function () {
+        newDiv.setAttribute('style', forStyle(finishStyle));
+        setTimeout(function () {
+          target.removeChild(newDiv)
+        }, 750)
+      }, 30)
+    }
+
+    for (var i=0;i< waves.length; i++) {
+      waves[i].addEventListener('click', function (event) {
+        show(event)
+      })
+    }
+    
+  </script>
+</body>
+
+</html>
